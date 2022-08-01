@@ -55,7 +55,7 @@ function removeBook(index) {
   // update the  local storage after the array has been modified
   localStorage.setItem('All Books: ', JSON.stringify(books));
 }
-document.addEventListener ('click', (e) => {
+document.addEventListener('click', (e) => {
   // if the btn clicked is not remove-btn then exit
   if (!e.target.matches('.remove-btn')) {
     return;
@@ -68,7 +68,7 @@ document.addEventListener ('click', (e) => {
     }
   });
 });
-  addBtn.addEventListener('click', () => {
+addBtn.addEventListener('click', () => {
   const author = document.getElementById('author');
   const title = document.getElementById('title');
   addBook(author, title);
