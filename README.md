@@ -1,7 +1,7 @@
 
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# A simple Books Storing site 
+# A simple book storing site 
 
 > This is a simple project that displays a list of books and allows you to add and remove books from that list.
 > [Checkout the live working demo](https://abelg101.github.io/Awesome-Books/)
@@ -24,7 +24,7 @@
 
 - GitHub: [@SurafelGetachewT](https://github.com/SurafelGetachewT)
 - Twitter: [@SuraGetch](https://twitter.com/SuraGetch)
-- LinkedIn: [LinekdIn] (https://www.linkedin.com/in/surafel-getachew-80155b187/)
+- LinkedIn: [LinekdIn](https://www.linkedin.com/in/surafel-getachew-80155b187/)
 
 ## 🤝 Contributing
 
