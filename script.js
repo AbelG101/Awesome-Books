@@ -53,3 +53,31 @@ function saveOnLocalStorage(book) {
     addBookOnPage(book);
   }
   
+  function removeBook(index) {
+    const booksDiv = document.querySelectorAll('.book');
+    books.splice(index, 1);
+    booksDiv[index].remove();
+    // update the  local storage after the array has been modified
+    localStorage.setItem('All Books: ', JSON.stringify(books));
+    console.log(books);
+  }
+  
+  document.addEventListener('click', function(e) {
+    // if the btn clicked is not remove-btn then exit
+    if (!e.target.matches('.remove-btn')) {
+      return;
+    }
+    const removeBtns = document.querySelectorAll('.remove-btn');
+    removeBtns.forEach((removeBtn, index) => {
+      // search for the index of the btn that is clicked
+      if (e.target === removeBtn ){
+        removeBook(index);
+      }
+    });
+  });
+  
+  addBtn.addEventListener('click', () => {
+    const author = document.getElementById('author');
+    const title = document.getElementById('title');
+    addBook(author, title);
+  });
