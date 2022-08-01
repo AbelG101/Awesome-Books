@@ -2,11 +2,8 @@ const addBtn = document.querySelector('.add-btn');
 const booksContainer = document.querySelector('.books-container');
 let books = [];
 
-// retrive books from local storage (if they exist) when page loads
-
 function saveOnLocalStorage(book) {
   books = JSON.parse(localStorage.getItem('All Books: '));
-  // if local storage is empty
   if (books == null) books = [];
   books.push(book);
   localStorage.setItem('Book: ', JSON.stringify(book));
@@ -31,7 +28,6 @@ function addBookOnPage(book) {
 }
 window.onload = () => {
   books = JSON.parse(localStorage.getItem('All Books: '));
-  // if books exist on local storage
   if (books !== null) {
     books.forEach((book) => {
       addBookOnPage(book);
@@ -52,17 +48,14 @@ function removeBook(index) {
   const booksDiv = document.querySelectorAll('.book');
   books.splice(index, 1);
   booksDiv[index].remove();
-  // update the  local storage after the array has been modified
   localStorage.setItem('All Books: ', JSON.stringify(books));
 }
 document.addEventListener('click', (e) => {
-  // if the btn clicked is not remove-btn then exit
   if (!e.target.matches('.remove-btn')) {
     return;
   }
   const removeBtns = document.querySelectorAll('.remove-btn');
   removeBtns.forEach((removeBtn, index) => {
-    // search for the index of the btn that is clicked
     if (e.target === removeBtn) {
       removeBook(index);
     }
