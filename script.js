@@ -1,7 +1,7 @@
 const addBtn = document.querySelector('.add-btn');
 const booksContainer = document.querySelector('.books-container');
 
-class bookClass {
+class BookClass {
   constructor(title, author) {
     this.author = author;
     this.title = title;
@@ -13,7 +13,7 @@ class BookOperations {
     this.books = [];
   }
   addBook(title, author) {
-    const book = new bookClass(title, author)
+    const book = new BookClass(title, author)
     saveOnLocalStorage(book);
     addBookOnPage(book);
   }
