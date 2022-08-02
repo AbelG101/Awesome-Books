@@ -1,13 +1,40 @@
 const addBtn = document.querySelector('.add-btn');
 const booksContainer = document.querySelector('.books-container');
-let books = [];
+
+class BookClass {
+  constructor(title, author) {
+    this.author = author;
+    this.title = title;
+  }
+};
+
+class BookOperations {
+  constructor() {
+    this.books = [];
+  }
+  addBook(title, author) {
+    const book = new BookClass(title, author)
+    saveOnLocalStorage(book);
+    addBookOnPage(book);
+  }
+  removeBook(index) {
+    const booksDiv = document.querySelectorAll('.book');
+    this.books.splice(index, 1);
+    booksDiv[index].remove();
+    localStorage.setItem('All Books: ', JSON.stringify(this.books));
+    if (booksContainer.childNodes.length === 1)
+      booksContainer.classList.toggle('active');
+  }
+};
+
+const bookOperations = new BookOperations();
 
 function saveOnLocalStorage(book) {
-  books = JSON.parse(localStorage.getItem('All Books: '));
-  if (books == null) books = [];
-  books.push(book);
+  bookOperations.books = JSON.parse(localStorage.getItem('All Books: '));
+  if (bookOperations.books == null) bookOperations.books = [];
+  bookOperations.books.push(book);
   localStorage.setItem('Book: ', JSON.stringify(book));
-  localStorage.setItem('All Books: ', JSON.stringify(books));
+  localStorage.setItem('All Books: ', JSON.stringify(bookOperations.books));
 }
 function addBookOnPage(book) {
   const div = document.createElement('div');
@@ -24,31 +51,13 @@ function addBookOnPage(book) {
     booksContainer.classList.add('active');
 }
 window.onload = () => {
-  books = JSON.parse(localStorage.getItem('All Books: '));
-  if (books !== null) {
-    books.forEach((book) => {
+  bookOperations.books = JSON.parse(localStorage.getItem('All Books: '));
+  if (bookOperations.books !== null) {
+    bookOperations.books.forEach((book) => {
       addBookOnPage(book);
     });
   }
 };
-function addBook(author, title) {
-  const book = {
-    title: String,
-    author: String,
-  };
-  book.title = title.value;
-  book.author = author.value;
-  saveOnLocalStorage(book);
-  addBookOnPage(book);
-}
-function removeBook(index) {
-  const booksDiv = document.querySelectorAll('.book');
-  books.splice(index, 1);
-  booksDiv[index].remove();
-  localStorage.setItem('All Books: ', JSON.stringify(books));
-  if (booksContainer.childNodes.length === 1)
-    booksContainer.classList.toggle('active');
-}
 document.addEventListener('click', (e) => {
   if (!e.target.matches('.remove-btn')) {
     return;
@@ -56,12 +65,12 @@ document.addEventListener('click', (e) => {
   const removeBtns = document.querySelectorAll('.remove-btn');
   removeBtns.forEach((removeBtn, index) => {
     if (e.target === removeBtn) {
-      removeBook(index);
+      bookOperations.removeBook(index);
     }
   });
 });
 addBtn.addEventListener('click', () => {
-  const author = document.getElementById('author');
-  const title = document.getElementById('title');
-  addBook(author, title);
+  const author = document.getElementById('author').value;
+  const title = document.getElementById('title').value;
+  bookOperations.addBook(title, author);
 });
