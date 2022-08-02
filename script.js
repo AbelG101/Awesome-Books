@@ -25,9 +25,17 @@ class BookClass {
     this.books = [];
   }
 
+  static saveOnLocalStorage(book) {
+    BookClass.books = JSON.parse(localStorage.getItem('All Books: '));
+    if (BookClass.books == null) BookClass.books = [];
+    BookClass.books.push(book);
+    localStorage.setItem('Book: ', JSON.stringify(book));
+    localStorage.setItem('All Books: ', JSON.stringify(BookClass.books));
+  }
+
   static addBook(title, author) {
     const book = new BookClass(title, author);
-    saveOnLocalStorage(book);
+    this.saveOnLocalStorage(book);
     addBookOnPage(book);
   }
 
@@ -40,13 +48,6 @@ class BookClass {
       booksContainer.classList.toggle('active');
     }
   }
-}
-function saveOnLocalStorage(book) {
-  BookClass.books = JSON.parse(localStorage.getItem('All Books: '));
-  if (BookClass.books == null) BookClass.books = [];
-  BookClass.books.push(book);
-  localStorage.setItem('Book: ', JSON.stringify(book));
-  localStorage.setItem('All Books: ', JSON.stringify(BookClass.books));
 }
 
 BookClass.createArray();
