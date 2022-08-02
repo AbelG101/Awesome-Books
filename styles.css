@@ -9,7 +9,7 @@ html {
   font-size: calc(15px + 0.390625vw);
 }
 
-h1{
+h1 {
   text-align: center;
   font-size: 1.8rem;
 }
@@ -23,6 +23,13 @@ h1{
   border: 3px solid #4d6d80;
 }
 
+.books-container .book {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 10px;
+}
+
 .books-container .book:nth-child(even) {
   background-color: #9fb8c6;
 }
@@ -31,14 +38,7 @@ h1{
   background-color: #bfd0d9;
 }
 
-.books-container .book {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 8px 10px;
-}
-
-.book p, 
+.book p,
 .remove-btn {
   font-size: 0.8rem;
 }
