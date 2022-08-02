@@ -1,12 +1,5 @@
 const addBtn = document.querySelector('.add-btn');
 const booksContainer = document.querySelector('.books-container');
-function saveOnLocalStorage(book) {
-  BookClass.books = JSON.parse(localStorage.getItem('All Books: '));
-  if (BookClass.books == null) BookClass.books = [];
-  BookClass.books.push(book);
-  localStorage.setItem('Book: ', JSON.stringify(book));
-  localStorage.setItem('All Books: ', JSON.stringify(BookClass.books));
-}
 function addBookOnPage(book) {
   const div = document.createElement('div');
   const authorTitle = document.createElement('p');
@@ -47,7 +40,13 @@ class BookClass {
       booksContainer.classList.toggle('active');
     }
   }
-
+}
+function saveOnLocalStorage(book) {
+  BookClass.books = JSON.parse(localStorage.getItem('All Books: '));
+  if (BookClass.books == null) BookClass.books = [];
+  BookClass.books.push(book);
+  localStorage.setItem('Book: ', JSON.stringify(book));
+  localStorage.setItem('All Books: ', JSON.stringify(BookClass.books));
 }
 
 BookClass.createArray();
