@@ -1,4 +1,3 @@
-const addBtn = document.querySelector('.add-btn');
 const booksContainer = document.querySelectorAll('.books-container');
 function addBookOnPage(book) {
   booksContainer.forEach((bookContainer) => {
@@ -9,7 +8,6 @@ function addBookOnPage(book) {
     removeBtn.textContent = 'Remove';
     removeBtn.setAttribute('class', 'remove-btn');
     div.setAttribute('class', 'book');
-    div.setAttribute('id', `${BookClass.id}`);
     div.appendChild(authorTitle);
     div.appendChild(removeBtn);
     bookContainer.appendChild(div);
@@ -17,14 +15,11 @@ function addBookOnPage(book) {
       bookContainer.classList.add('border');
     }
   });
-  BookClass.id += 1;
 }
 class BookClass {
-  static id = 0;
-  constructor(title, author, id) {
+  constructor(title, author) {
     this.author = author;
     this.title = title;
-    this.id = id;
   }
 
   static createArray() {
@@ -40,18 +35,15 @@ class BookClass {
   }
 
   static addBook(title, author) {
-    const book = new BookClass(title, author, this.id);
+    const book = new BookClass(title, author);
     this.saveOnLocalStorage(book);
     addBookOnPage(book);
   }
 
-  static removeBook(id) {
-    const index = parseInt(id);
+  static removeBook(index) {
+    const booksDiv = document.querySelectorAll('.book');
     this.books.splice(index, 1);
-    const booksOnSections = document.querySelectorAll(`[id='${id}']`);
-    booksOnSections.forEach((book) => {
-      book.remove();
-    });
+    booksDiv[index].remove();
     localStorage.setItem('All Books: ', JSON.stringify(this.books));
     booksContainer.forEach((bookContainer) => {
       if (bookContainer.childNodes.length === 1) {

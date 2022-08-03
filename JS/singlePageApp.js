@@ -1,18 +1,16 @@
 const app = {
-  init: function() {
-    console.log("currentPage");
+  init: () => {
     document.querySelectorAll('.nav-link').forEach((link) => {
       link.addEventListener('click', app.nav);
-    })
-    history.replaceState({}, 'Home', '#home');
+    });
+    window.history.replaceState({}, 'Home', '#home');
   },
-  nav: function(ev) {
+  nav: (ev) => {
     ev.preventDefault();
-    let currentPage = ev.target.getAttribute('data-target');
-
+    const currentPage = ev.target.getAttribute('data-target');
     document.querySelector('.active').classList.remove('active');
     document.getElementById(currentPage).classList.add('active');
-    history.pushState({}, currentPage, `#${currentPage}`);
+    window.history.pushState({}, currentPage, `#${currentPage}`);
   },
-}
-export { app };
+};
+export default app;
