@@ -4,35 +4,28 @@
   padding: 0;
   font-family: 'Poppins', sans-serif;
 }
-
 html {
   font-size: calc(15px + 0.390625vw);
 }
-
 body {
   padding: 10px;
 }
-
 a {
   text-decoration: none;
 }
-
 ul {
   list-style-type: none;
 }
-
 .page {
   display: none;
   min-height: calc(100vh - 20px);
   position: relative;
 }
-
 .page.active {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
-
 .top-nav {
   display: flex;
   width: 100%;
@@ -41,70 +34,55 @@ ul {
   padding: 0.5rem 0.7rem;
   border: 1px solid #4d6d80;
 }
-
 .top-nav h3 {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
 }
-
 .top-nav ul {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-
 .top-nav ul li {
   margin-left: 10px;
 }
-
 .top-nav ul li:not(:last-child) {
   border-right: 0.07rem solid #4d6d80;
   padding-right: 0.5rem;
 }
-
 .top-nav ul li a {
   color: #000;
   font-size: 0.8rem;
 }
-
 h1 {
   text-align: center;
   font-size: 1.8rem;
 }
-
 .books-container {
   width: 100%;
   margin: 20px auto;
   border: none;
 }
-
-.books-container.active {
+.books-container.border {
   border: 3px solid #4d6d80;
 }
-
 .books-container .book {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 8px 10px;
 }
-
 .books-container .book:nth-child(even) {
   background-color: #9fb8c6;
 }
-
 .books-container .book:nth-child(odd) {
   background-color: #bfd0d9;
 }
-
-.book p,
-.remove-btn {
+.book p, .remove-btn {
   font-size: 0.8rem;
 }
-
 .book .remove-btn {
   padding: 3px 5px;
 }
-
 .add-book-content {
   display: flex;
   flex-direction: column;
@@ -112,7 +90,6 @@ h1 {
   width: 80%;
   margin: 10px auto;
 }
-
 .add-book-content > input {
   width: 100%;
   margin-bottom: 20px;
@@ -121,22 +98,28 @@ h1 {
   transition: 0.1s ease-in;
   border: 1px solid #4d6d80;
 }
-
 .add-book-content input:focus {
   border: 1px solid #9fb8c6;
   background-color: #bfd0d9;
 }
-
 .add-book-content button {
   padding: 3px 13px;
   align-self: flex-end;
 }
-
 #contact .content {
-  text-align: center;
+  margin: 10px auto;
   line-height: 27px;
 }
-
+#contact .content p {
+  margin: 10px 0;
+}
+#contact .content ul {
+  list-style-type:disc;
+}
+#contact .content ul li {
+  list-style-position: inside;
+  line-height: 30px;
+}
 footer {
   display: flex;
   justify-content: space-between;
@@ -145,33 +128,26 @@ footer {
   padding: 0.5rem 0.7rem;
   border: 1px solid #4d6d80;
 }
-
 footer > div {
   font-size: 0.6rem;
 }
-
 footer .logo {
   font-weight: bold;
 }
-
 @media only screen and (min-width: 768px) {
   .books-container {
     width: 80%;
-  }
-
+ }
   .books-container .book {
     padding: 10px 20px;
-  }
-
+ }
   .book .remove-btn {
     padding: 5px 10px;
-  }
-
+ }
   .add-book-content {
     width: 50%;
-  }
-
+ }
   .add-book-content button {
     padding: 5px 15px;
-  }
+ }
 }
