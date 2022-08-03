@@ -1,19 +1,22 @@
 const addBtn = document.querySelector('.add-btn');
-const booksContainer = document.querySelector('.books-container');
+const booksContainer = document.querySelectorAll('.books-container');
 function addBookOnPage(book) {
-  const div = document.createElement('div');
-  const authorTitle = document.createElement('p');
-  const removeBtn = document.createElement('button');
-  authorTitle.textContent = `"${book.title}" by ${book.author}`;
-  removeBtn.textContent = 'Remove';
-  removeBtn.setAttribute('class', 'remove-btn');
-  div.setAttribute('class', 'book');
-  div.appendChild(authorTitle);
-  div.appendChild(removeBtn);
-  booksContainer.appendChild(div);
-  if (booksContainer.childNodes.length !== 0) {
-    booksContainer.classList.add('active');
-  }
+  booksContainer.forEach((bookContainer) => {
+    const div = document.createElement('div');
+    const authorTitle = document.createElement('p');
+    const removeBtn = document.createElement('button');
+    authorTitle.textContent = `"${book.title}" by ${book.author}`;
+    removeBtn.textContent = 'Remove';
+    removeBtn.setAttribute('class', 'remove-btn');
+    div.setAttribute('class', 'book');
+    div.appendChild(authorTitle);
+    div.appendChild(removeBtn);
+    bookContainer.appendChild(div);
+    if (bookContainer.childNodes.length !== 0) {
+      bookContainer.classList.add('active');
+    }
+    console.log(bookContainer)
+  });
 }
 class BookClass {
   constructor(title, author) {
@@ -44,9 +47,12 @@ class BookClass {
     this.books.splice(index, 1);
     booksDiv[index].remove();
     localStorage.setItem('All Books: ', JSON.stringify(this.books));
-    if (booksContainer.childNodes.length === 1) {
-      booksContainer.classList.toggle('active');
-    }
+    booksContainer.forEach((bookContainer) => {
+      if (bookContainer.childNodes.length === 1) {
+        bookContainer.classList.toggle('active');
+      }
+    });
+
   }
 }
 
@@ -76,3 +82,34 @@ addBtn.addEventListener('click', () => {
   const title = document.getElementById('title').value;
   BookClass.addBook(title, author);
 });
+
+function displaySection(section) {
+  const sectionList = document.getElementById('list');
+  const sectionForm = document.getElementById('add-new');
+  const sectionContact = document.getElementById('contact');
+
+  switch (section) {
+    case 'list':
+      sectionList.style.display = 'block';
+      sectionForm.style.display = 'none';
+      sectionContact.style.display = 'none';
+      heading.innerHTML = 'All Awesome Books';
+      break;
+
+    case 'add-new':
+      sectionList.style.display = 'none';
+      sectionForm.style.display = 'block';
+      sectionContact.style.display = 'none';
+      heading.innerHTML = 'Add a New Book';
+      break;
+
+    case 'contact':
+      sectionList.style.display = 'none';
+      sectionForm.style.display = 'none';
+      sectionContact.style.display = 'block';
+      heading.innerHTML = 'Contact Information';
+      break;
+
+    default: break;
+  }
+}
