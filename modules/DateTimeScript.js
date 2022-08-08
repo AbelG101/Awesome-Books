@@ -9,5 +9,5 @@ const getDateTime = () => {
       elt.textContent = nowFormatted;
     });
   }, 1000);
-}
+};
 export default getDateTime;
