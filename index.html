@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./index.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet"> 
@@ -13,14 +13,17 @@
 <body>
   <main>
     <section class="page active" id="list">
-      <nav class="top-nav">
-        <h3 class="logo">Awesome Books</h3>
-        <ul>
-          <li><a href="#" data-target="list" class="nav-link">List</a></li>
-          <li><a href="#" data-target="add-new" class="nav-link">Add new</a></li>
-          <li><a href="#" data-target="contact" class="nav-link">Contact</a></li>
-        </ul>
-      </nav>
+      <div class="nav-container">
+        <nav class="top-nav">
+          <h3 class="logo">Awesome Books</h3>
+          <ul>
+            <li><a href="#" data-target="list" class="nav-link">List</a></li>
+            <li><a href="#" data-target="add-new" class="nav-link">Add new</a></li>
+            <li><a href="#" data-target="contact" class="nav-link">Contact</a></li>
+          </ul>
+        </nav>
+        <span class="date-time"></span>
+      </div>
       <header>
         <h1>All awesome books</h1>
       </header>
@@ -33,14 +36,17 @@
       </footer>
     </section>
     <section class="page" id="add-new">
-      <nav class="top-nav">
-        <h3 class="logo">Awesome Books</h3>
-        <ul>
-          <li><a href="#" data-target="list" class="nav-link">List</a></li>
-          <li><a href="#" data-target="add-new" class="nav-link">Add new</a></li>
-          <li><a href="#" data-target="contact" class="nav-link">Contact</a></li>
-        </ul>
-      </nav>
+      <div class="nav-container">
+        <nav class="top-nav">
+          <h3 class="logo">Awesome Books</h3>
+          <ul>
+            <li><a href="#" data-target="list" class="nav-link">List</a></li>
+            <li><a href="#" data-target="add-new" class="nav-link">Add new</a></li>
+            <li><a href="#" data-target="contact" class="nav-link">Contact</a></li>
+          </ul>
+        </nav>
+        <span class="date-time"></span>
+      </div>
       <h1>Add a new book</h1>
       <div class="add-book-content">
         <input id="title" type="text" placeholder="Title"><br><br>
@@ -53,14 +59,17 @@
       </footer>
     </section>
     <section class="page " id="contact">
-      <nav class="top-nav">
-        <h3 class="logo">Awesome Books</h3>
-        <ul>
-          <li><a href="#" data-target="list" class="nav-link">List</a></li>
-          <li><a href="#" data-target="add-new" class="nav-link">Add new</a></li>
-          <li><a href="#" data-target="contact" class="nav-link">Contact</a></li>
-        </ul>
-      </nav>
+      <div class="nav-container">
+        <nav class="top-nav">
+          <h3 class="logo">Awesome Books</h3>
+          <ul>
+            <li><a href="#" data-target="list" class="nav-link">List</a></li>
+            <li><a href="#" data-target="add-new" class="nav-link">Add new</a></li>
+            <li><a href="#" data-target="contact" class="nav-link">Contact</a></li>
+          </ul>
+        </nav>
+        <span class="date-time"></span>
+      </div>
       <h1>Contact  information</h1>
       <div class="content">
         <p>Do you have any questions or just want to say "Hello"? <br>You can reach out to us!</p>
@@ -77,6 +86,6 @@
     </section>
   </main>
 
-<script type="module" src="./JS/main.js"></script>
+<script type="module" src="./index.js"></script>
 </body>
 </html>

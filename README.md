@@ -13,18 +13,13 @@
 ### Technologies used 
 - Git, linters and Github  
 
-## Authors
+## Author
 
 👤 **Abel Gebeyehu**
 
 - GitHub: [@AbelG101](https://github.com/AbelG101)
 - LinkedIn: [Abel Gebeyehu](https://www.linkedin.com/in/abel-gebeyehu-779743183/)
 
-👤 **Surafel Getachew**
-
-- GitHub: [@SurafelGetachewT](https://github.com/SurafelGetachewT)
-- Twitter: [@SuraGetch](https://twitter.com/SuraGetch)
-- LinkedIn: [LinekdIn](https://www.linkedin.com/in/surafel-getachew-80155b187/)
 
 ## 🤝 Contributing
 

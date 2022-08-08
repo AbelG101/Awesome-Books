@@ -1,11 +1,13 @@
-import { callRemoveBook, callAddBook, retrieveBookData } from './bookScript.js';
-import app from './singlePageApp.js';
+import { callRemoveBook, callAddBook, retrieveBookData } from './modules/bookScript.js';
+import app from './modules/singlePageApp.js';
+import getDateTime from './modules/DateTimeScript.js';
 
 const addBtn = document.querySelector('.add-btn');
-function onPageLoad() {
+const onPageLoad = () => {
   retrieveBookData();
   app.init();
-}
+  getDateTime();
+};
 window.onload = onPageLoad();
 document.addEventListener('click', (e) => {
   if (!e.target.matches('.remove-btn')) {

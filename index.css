@@ -66,6 +66,12 @@ ul {
   font-size: 0.8rem;
 }
 
+.nav-container .date-time {
+  float: right;
+  font-size: 0.7rem;
+  color: #395260;
+}
+
 h1 {
   text-align: center;
   font-size: 1.8rem;

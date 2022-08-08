@@ -1,5 +1,5 @@
 const booksContainer = document.querySelectorAll('.books-container');
-function addBookOnPage(book) {
+const addBookOnPage = (book) => {
   booksContainer.forEach((bookContainer) => {
     const div = document.createElement('div');
     const authorTitle = document.createElement('p');
@@ -15,7 +15,7 @@ function addBookOnPage(book) {
       bookContainer.classList.add('border');
     }
   });
-}
+};
 class BookClass {
   constructor(title, author) {
     this.author = author;
@@ -54,21 +54,21 @@ class BookClass {
 }
 
 BookClass.createArray();
-function callAddBook() {
+const callAddBook = () => {
   const author = document.getElementById('author').value;
   const title = document.getElementById('title').value;
   BookClass.addBook(title, author);
-}
-function callRemoveBook(index) {
+};
+const callRemoveBook = (index) => {
   BookClass.removeBook(index);
-}
-function retrieveBookData() {
+};
+const retrieveBookData = () => {
   BookClass.books = JSON.parse(localStorage.getItem('All Books: '));
   if (BookClass.books !== null) {
     BookClass.books.forEach((book) => {
       addBookOnPage(book);
     });
   }
-}
+};
 
 export { callRemoveBook, callAddBook, retrieveBookData };
