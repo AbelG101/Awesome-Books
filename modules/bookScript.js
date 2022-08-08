@@ -15,7 +15,7 @@ const addBookOnPage = (book) => {
       bookContainer.classList.add('border');
     }
   });
-}
+};
 class BookClass {
   constructor(title, author) {
     this.author = author;
@@ -58,10 +58,10 @@ const callAddBook = () => {
   const author = document.getElementById('author').value;
   const title = document.getElementById('title').value;
   BookClass.addBook(title, author);
-}
+};
 const callRemoveBook = (index) => {
   BookClass.removeBook(index);
-}
+};
 const retrieveBookData = () => {
   BookClass.books = JSON.parse(localStorage.getItem('All Books: '));
   if (BookClass.books !== null) {
@@ -69,6 +69,6 @@ const retrieveBookData = () => {
       addBookOnPage(book);
     });
   }
-}
+};
 
 export { callRemoveBook, callAddBook, retrieveBookData };
