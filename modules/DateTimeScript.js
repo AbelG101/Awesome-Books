@@ -2,7 +2,7 @@ import { DateTime } from './luxon.min.js';
 
 function getDateTime() {
   const dateTimeDiv = document.querySelectorAll('.date-time');
-   setInterval(() => {
+  setInterval(() => {
     const now = DateTime.local();
     const nowFormatted = now.toLocaleString(DateTime.DATETIME_MED_WITH_SECONDS);
     dateTimeDiv.forEach((elt) => {
