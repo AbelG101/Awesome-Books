@@ -1,6 +1,6 @@
 import { DateTime } from './luxon.min.js';
 
-function getDateTime() {
+const getDateTime = () => {
   const dateTimeDiv = document.querySelectorAll('.date-time');
   setInterval(() => {
     const now = DateTime.local();
