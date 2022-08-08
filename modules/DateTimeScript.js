@@ -1,4 +1,4 @@
-import { DateTime } from '../LuxonFiles/luxon/build/es6/luxon.js';
+import { DateTime } from './luxon.min.js';
 
 function getDateTime() {
   const dateTimeDiv = document.querySelectorAll('.date-time');
